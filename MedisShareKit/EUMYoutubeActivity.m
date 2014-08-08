@@ -60,8 +60,9 @@
 
 - (UIViewController *)activityViewController {
     if (!self.youtubeViewController) {
-        self.youtubeViewController = [[MSYoutubeViewController alloc] init];
-        self.youtubeViewController.url = self.url;
+       UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"youtube" bundle:nil];
+        self.youtubeViewController = [mainStoryboard instantiateInitialViewController];
+//        self.youtubeViewController.url = self.url;
     }
     return self.youtubeViewController;
 }

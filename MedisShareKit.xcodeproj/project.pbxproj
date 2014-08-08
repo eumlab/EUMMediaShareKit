@@ -29,6 +29,7 @@
 		7C9FD58A1994730100D0E6D8 /* ULShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5891994730100D0E6D8 /* ULShareController.m */; };
 		7C9FD58E1994768F00D0E6D8 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD58C1994768F00D0E6D8 /* AppIcon60x60.png */; };
 		7C9FD58F1994768F00D0E6D8 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD58D1994768F00D0E6D8 /* AppIcon60x60@2x.png */; };
+		7CFEEFD11994B65B00D8CF77 /* youtube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */; };
 		A758C658F7864A41B6FA06AD /* libPods-MedisShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2E76BDAD8444C0A66CBD49 /* libPods-MedisShareKit.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		7C9FD5891994730100D0E6D8 /* ULShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULShareController.m; sourceTree = "<group>"; };
 		7C9FD58C1994768F00D0E6D8 /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon60x60.png; sourceTree = "<group>"; };
 		7C9FD58D1994768F00D0E6D8 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon60x60@2x.png"; sourceTree = "<group>"; };
+		7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = youtube.storyboard; sourceTree = "<group>"; };
 		BC2E76BDAD8444C0A66CBD49 /* libPods-MedisShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedisShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF311622CAFF462C8FD239D7 /* Pods-MedisShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedisShareKit.xcconfig"; path = "Pods/Pods-MedisShareKit.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				7C9FD5791994618A00D0E6D8 /* EUMYoutubeActivity.m */,
 				7C9FD58319946F3C00D0E6D8 /* MSYoutubeViewController.h */,
 				7C9FD58419946F3C00D0E6D8 /* MSYoutubeViewController.m */,
+				7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */,
 				7C9FD58519946F3C00D0E6D8 /* MSYoutubeViewController.xib */,
 				7C9FD5761994618A00D0E6D8 /* YouTubeHelper.h */,
 				7C9FD5771994618A00D0E6D8 /* YouTubeHelper.m */,
@@ -279,6 +282,7 @@
 				7C9FD58F1994768F00D0E6D8 /* AppIcon60x60@2x.png in Resources */,
 				7C9FD58719946F3C00D0E6D8 /* MSYoutubeViewController.xib in Resources */,
 				7C9FD5551994613E00D0E6D8 /* Main.storyboard in Resources */,
+				7CFEEFD11994B65B00D8CF77 /* youtube.storyboard in Resources */,
 				7C9FD57D1994618A00D0E6D8 /* RARBG.com.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

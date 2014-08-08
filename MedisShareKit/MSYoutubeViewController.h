@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSYoutubeViewController : UIViewController
+@interface MSYoutubeViewController : UITableViewController
 
 @property (strong, nonatomic) NSURL *url;
 

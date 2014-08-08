@@ -9,34 +9,22 @@
 #import "MSYoutubeViewController.h"
 #import "YouTubeHelper.h"
 
-@interface MSYoutubeViewController ()<YouTubeHelperDelegate>
+@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) YouTubeHelper *helper;
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+
 @end
+
+static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 @implementation MSYoutubeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (IBAction)cancel:(id)sender {
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)send:(id)sender {
     _helper = [[YouTubeHelper alloc] initWithDelegate:self];
     
@@ -46,6 +34,8 @@
         [_helper authenticate];
     }
 }
+
+#pragma mark TableView
 
 
 #pragma mark YouTubeHelper Delegate
