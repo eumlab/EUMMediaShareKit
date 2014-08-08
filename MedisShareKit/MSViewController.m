@@ -7,6 +7,7 @@
 //
 
 #import "MSViewController.h"
+#import "EUMYoutubeActivity.h"
 
 @interface MSViewController ()
 
@@ -24,6 +25,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)shareVideo:(id)sender {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"RARBG.com" withExtension:@"mp4"];
+    
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc] initWithActivityItems:@[url]
+                                      applicationActivities:@[[EUMYoutubeActivity new]]];
+    controller.completionHandler = ^(NSString *activityType, BOOL completed){
+        NSLog(@"%@", activityType);
+        NSLog(@"%i", completed);
+    };
+    [self presentViewController:controller animated:YES completion:^{
+        
+    }];
 }
 
 @end
