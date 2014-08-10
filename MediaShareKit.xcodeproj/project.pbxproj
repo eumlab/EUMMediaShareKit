@@ -17,7 +17,7 @@
 		7CED11B9199750020081FF73 /* MSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11B6199750020081FF73 /* MSAppDelegate.m */; };
 		7CED11BA199750020081FF73 /* MSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11B8199750020081FF73 /* MSViewController.m */; };
 		7CED11BD199750260081FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11BB199750260081FF73 /* Main.storyboard */; };
-		7CED11C01997502F0081FF73 /* ULShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11BF1997502F0081FF73 /* ULShareController.m */; };
+		7CED11C01997502F0081FF73 /* MSShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11BF1997502F0081FF73 /* MSShareController.m */; };
 		7CED11D41997519A0081FF73 /* MSSoundCloudActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D31997519A0081FF73 /* MSSoundCloudActivity.m */; };
 		7CED11E01997519F0081FF73 /* MSYoutubeActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D61997519F0081FF73 /* MSYoutubeActivity.m */; };
 		7CED11E11997519F0081FF73 /* MSYouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D81997519F0081FF73 /* MSYouTubeHelper.m */; };
@@ -46,8 +46,8 @@
 		7CED11B7199750020081FF73 /* MSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSViewController.h; path = MediaShareKit/MSViewController.h; sourceTree = SOURCE_ROOT; };
 		7CED11B8199750020081FF73 /* MSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSViewController.m; path = MediaShareKit/MSViewController.m; sourceTree = SOURCE_ROOT; };
 		7CED11BC199750260081FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MediaShareKit/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		7CED11BE1997502F0081FF73 /* ULShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ULShareController.h; path = MediaShareKit/Share/ULShareController.h; sourceTree = SOURCE_ROOT; };
-		7CED11BF1997502F0081FF73 /* ULShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ULShareController.m; path = MediaShareKit/Share/ULShareController.m; sourceTree = SOURCE_ROOT; };
+		7CED11BE1997502F0081FF73 /* MSShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSShareController.h; path = MediaShareKit/Share/MSShareController.h; sourceTree = SOURCE_ROOT; };
+		7CED11BF1997502F0081FF73 /* MSShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSShareController.m; path = MediaShareKit/Share/MSShareController.m; sourceTree = SOURCE_ROOT; };
 		7CED11D21997519A0081FF73 /* MSSoundCloudActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSoundCloudActivity.h; path = MediaShareKit/Share/MSSoundCloudActivity.h; sourceTree = SOURCE_ROOT; };
 		7CED11D31997519A0081FF73 /* MSSoundCloudActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSoundCloudActivity.m; path = MediaShareKit/Share/MSSoundCloudActivity.m; sourceTree = SOURCE_ROOT; };
 		7CED11D51997519F0081FF73 /* MSYoutubeActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSYoutubeActivity.h; path = MediaShareKit/Share/MSYoutubeActivity.h; sourceTree = SOURCE_ROOT; };
@@ -128,8 +128,8 @@
 				7CED11B7199750020081FF73 /* MSViewController.h */,
 				7CED11B8199750020081FF73 /* MSViewController.m */,
 				7CED11BB199750260081FF73 /* Main.storyboard */,
-				7CED11BE1997502F0081FF73 /* ULShareController.h */,
-				7CED11BF1997502F0081FF73 /* ULShareController.m */,
+				7CED11BE1997502F0081FF73 /* MSShareController.h */,
+				7CED11BF1997502F0081FF73 /* MSShareController.m */,
 				7CED119019974CE10081FF73 /* SoundCloud */,
 				7CED11871996F8150081FF73 /* Youtube */,
 				7CED11B119974FF20081FF73 /* over_star_01.mp3 */,
@@ -303,7 +303,7 @@
 				7CED11D41997519A0081FF73 /* MSSoundCloudActivity.m in Sources */,
 				7CED11B9199750020081FF73 /* MSAppDelegate.m in Sources */,
 				7CED11E11997519F0081FF73 /* MSYouTubeHelper.m in Sources */,
-				7CED11C01997502F0081FF73 /* ULShareController.m in Sources */,
+				7CED11C01997502F0081FF73 /* MSShareController.m in Sources */,
 				7CED11E01997519F0081FF73 /* MSYoutubeActivity.m in Sources */,
 				7CED11BA199750020081FF73 /* MSViewController.m in Sources */,
 				7CED11EA199751DD0081FF73 /* main.m in Sources */,

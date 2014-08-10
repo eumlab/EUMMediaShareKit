@@ -7,8 +7,7 @@
 //
 
 #import "MSViewController.h"
-#import "MSYoutubeActivity.h"
-#import "MSSoundCloudActivity.h"
+#import "MSShareController.h"
 
 @interface MSViewController ()
 
@@ -30,32 +29,12 @@
 
 - (IBAction)shareAudio:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"over_star_01" withExtension:@"mp3"];
-    
-    UIActivityViewController *controller =
-    [[UIActivityViewController alloc] initWithActivityItems:@[url]
-                                      applicationActivities:@[[MSSoundCloudActivity new]]];
-    controller.completionHandler = ^(NSString *activityType, BOOL completed){
-        NSLog(@"%@", activityType);
-        NSLog(@"%i", completed);
-    };
-    [self presentViewController:controller animated:YES completion:^{
-        
-    }];
+    [MSShareController shareAudioWithURL:url FromViewController:self];
 }
 
 - (IBAction)shareVideo:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"RARBG.com" withExtension:@"mp4"];
-    
-    UIActivityViewController *controller =
-    [[UIActivityViewController alloc] initWithActivityItems:@[url]
-                                      applicationActivities:@[[MSYoutubeActivity new]]];
-    controller.completionHandler = ^(NSString *activityType, BOOL completed){
-        NSLog(@"%@", activityType);
-        NSLog(@"%i", completed);
-    };
-    [self presentViewController:controller animated:YES completion:^{
-        
-    }];
+    [MSShareController shareVideoWithURL:url FromViewController:self];
 }
 
 @end
