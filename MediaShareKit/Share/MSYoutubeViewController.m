@@ -8,6 +8,7 @@
 
 #import "MSYoutubeViewController.h"
 #import "MSYouTubeHelper.h"
+#import "SHKConfiguration.h"
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
@@ -119,12 +120,12 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (NSString *)youtubeAPIClientID
 {
-    return @"869308807579-t0mu79sql6leag79fabttvitb5f7s1j6.apps.googleusercontent.com";
+    return SHKCONFIG(youtubeAPIClientID);
 }
 
 - (NSString *)youtubeAPIClientSecret
 {
-    return @"sVnS8r7tpa2tSmPnl3b9f6Ct";
+    return SHKCONFIG(youtubeAPIClientSecret);
 }
 
 - (void)showAuthenticationViewController:(UIViewController *)authView;

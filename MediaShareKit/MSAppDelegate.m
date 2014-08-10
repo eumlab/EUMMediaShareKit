@@ -7,12 +7,16 @@
 //
 
 #import "MSAppDelegate.h"
+#import "ULShareKitConfigurator.h"
+#import "SHKConfiguration.h"
 
 @implementation MSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    DefaultSHKConfigurator *configurator = [ULShareKitConfigurator new];
+	[SHKConfiguration sharedInstanceWithConfigurator:configurator];
     return YES;
 }
 							

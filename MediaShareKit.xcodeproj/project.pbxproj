@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B294F63E1C43D09356D02B /* libPods-MediaShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D21A2D2E15D4CF094E4077E /* libPods-MediaShareKit.a */; };
 		7C9FD5421994613E00D0E6D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5411994613E00D0E6D8 /* Foundation.framework */; };
 		7C9FD5441994613E00D0E6D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */; };
 		7C9FD5461994613E00D0E6D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5451994613E00D0E6D8 /* UIKit.framework */; };
+		7CA3F65A19975F5E00A06FF8 /* DefaultSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA3F65719975F5E00A06FF8 /* DefaultSHKConfigurator.m */; };
+		7CA3F65B19975F5E00A06FF8 /* SHKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA3F65919975F5E00A06FF8 /* SHKConfiguration.m */; };
+		7CA3F6631997621B00A06FF8 /* ULShareKitConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA3F6621997621B00A06FF8 /* ULShareKitConfigurator.m */; };
 		7CED11AF19974FEB0081FF73 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11AD19974FEB0081FF73 /* AppIcon60x60.png */; };
 		7CED11B019974FEB0081FF73 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11AE19974FEB0081FF73 /* AppIcon60x60@2x.png */; };
 		7CED11B319974FF20081FF73 /* over_star_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11B119974FF20081FF73 /* over_star_01.mp3 */; };
@@ -27,16 +31,22 @@
 		7CED11E7199751C90081FF73 /* MediaShareKit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11E6199751C90081FF73 /* MediaShareKit-Info.plist */; };
 		7CED11EA199751DD0081FF73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11E9199751DD0081FF73 /* main.m */; };
 		7CED11EE199751F10081FF73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11EC199751F10081FF73 /* InfoPlist.strings */; };
-		A4AA1ACAEB53482C8FF22DDF /* libPods-MediaShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */; };
-		A758C658F7864A41B6FA06AD /* libPods-MediaShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D21A2D2E15D4CF094E4077E /* libPods-MediaShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9FD53E1994613E00D0E6D8 /* MediaShareKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaShareKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9FD5411994613E00D0E6D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7C9FD5451994613E00D0E6D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7C9FD5601994613E00D0E6D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7CA3F65619975F5E00A06FF8 /* DefaultSHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultSHKConfigurator.h; path = Share/DefaultSHKConfigurator.h; sourceTree = "<group>"; };
+		7CA3F65719975F5E00A06FF8 /* DefaultSHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultSHKConfigurator.m; path = Share/DefaultSHKConfigurator.m; sourceTree = "<group>"; };
+		7CA3F65819975F5E00A06FF8 /* SHKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHKConfiguration.h; path = Share/SHKConfiguration.h; sourceTree = "<group>"; };
+		7CA3F65919975F5E00A06FF8 /* SHKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHKConfiguration.m; path = Share/SHKConfiguration.m; sourceTree = "<group>"; };
+		7CA3F65D1997603000A06FF8 /* SuppressPerformSelectorWarning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SuppressPerformSelectorWarning.h; path = Share/SuppressPerformSelectorWarning.h; sourceTree = "<group>"; };
+		7CA3F6611997621B00A06FF8 /* ULShareKitConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULShareKitConfigurator.h; sourceTree = "<group>"; };
+		7CA3F6621997621B00A06FF8 /* ULShareKitConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULShareKitConfigurator.m; sourceTree = "<group>"; };
 		7CED11AD19974FEB0081FF73 /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon60x60.png; path = MediaShareKit/AppIcon60x60.png; sourceTree = SOURCE_ROOT; };
 		7CED11AE19974FEB0081FF73 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon60x60@2x.png"; path = "MediaShareKit/AppIcon60x60@2x.png"; sourceTree = SOURCE_ROOT; };
 		7CED11B119974FF20081FF73 /* over_star_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = over_star_01.mp3; path = MediaShareKit/over_star_01.mp3; sourceTree = SOURCE_ROOT; };
@@ -63,10 +73,8 @@
 		7CED11E9199751DD0081FF73 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MediaShareKit/main.m; sourceTree = SOURCE_ROOT; };
 		7CED11EB199751E30081FF73 /* MediaShareKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MediaShareKit-Prefix.pch"; path = "MediaShareKit/MediaShareKit-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7CED11ED199751F10081FF73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = MediaShareKit/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
 		FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
-		FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +85,7 @@
 				7C9FD5441994613E00D0E6D8 /* CoreGraphics.framework in Frameworks */,
 				7C9FD5461994613E00D0E6D8 /* UIKit.framework in Frameworks */,
 				7C9FD5421994613E00D0E6D8 /* Foundation.framework in Frameworks */,
-				A758C658F7864A41B6FA06AD /* libPods-MediaShareKit.a in Frameworks */,
-				A4AA1ACAEB53482C8FF22DDF /* libPods-MediaShareKit.a in Frameworks */,
+				00B294F63E1C43D09356D02B /* libPods-MediaShareKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +121,7 @@
 				7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */,
 				7C9FD5451994613E00D0E6D8 /* UIKit.framework */,
 				7C9FD5601994613E00D0E6D8 /* XCTest.framework */,
-				BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */,
-				FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */,
+				4D21A2D2E15D4CF094E4077E /* libPods-MediaShareKit.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,9 +133,12 @@
 				7CED11B6199750020081FF73 /* MSAppDelegate.m */,
 				7CED11B7199750020081FF73 /* MSViewController.h */,
 				7CED11B8199750020081FF73 /* MSViewController.m */,
+				7CA3F6611997621B00A06FF8 /* ULShareKitConfigurator.h */,
+				7CA3F6621997621B00A06FF8 /* ULShareKitConfigurator.m */,
 				7CED11BB199750260081FF73 /* Main.storyboard */,
 				7CED11BE1997502F0081FF73 /* MSShareController.h */,
 				7CED11BF1997502F0081FF73 /* MSShareController.m */,
+				7CA3F65C19975F6600A06FF8 /* Configuration */,
 				7CED119019974CE10081FF73 /* SoundCloud */,
 				7CED11871996F8150081FF73 /* Youtube */,
 				7CED11B119974FF20081FF73 /* over_star_01.mp3 */,
@@ -150,6 +159,18 @@
 				7CED11EB199751E30081FF73 /* MediaShareKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CA3F65C19975F6600A06FF8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7CA3F65619975F5E00A06FF8 /* DefaultSHKConfigurator.h */,
+				7CA3F65719975F5E00A06FF8 /* DefaultSHKConfigurator.m */,
+				7CA3F65819975F5E00A06FF8 /* SHKConfiguration.h */,
+				7CA3F65919975F5E00A06FF8 /* SHKConfiguration.m */,
+				7CA3F65D1997603000A06FF8 /* SuppressPerformSelectorWarning.h */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		7CED11871996F8150081FF73 /* Youtube */ = {
@@ -303,6 +324,9 @@
 				7CED11D41997519A0081FF73 /* MSSoundCloudActivity.m in Sources */,
 				7CED11B9199750020081FF73 /* MSAppDelegate.m in Sources */,
 				7CED11E11997519F0081FF73 /* MSYouTubeHelper.m in Sources */,
+				7CA3F65B19975F5E00A06FF8 /* SHKConfiguration.m in Sources */,
+				7CA3F6631997621B00A06FF8 /* ULShareKitConfigurator.m in Sources */,
+				7CA3F65A19975F5E00A06FF8 /* DefaultSHKConfigurator.m in Sources */,
 				7CED11C01997502F0081FF73 /* MSShareController.m in Sources */,
 				7CED11E01997519F0081FF73 /* MSYoutubeActivity.m in Sources */,
 				7CED11BA199750020081FF73 /* MSViewController.m in Sources */,
@@ -434,7 +458,7 @@
 		};
 		7C9FD5711994613E00D0E6D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */;
+			baseConfigurationReference = BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -448,7 +472,7 @@
 		};
 		7C9FD5721994613E00D0E6D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */;
+			baseConfigurationReference = BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

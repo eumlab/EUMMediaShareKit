@@ -9,6 +9,7 @@
 #import "MSSoundCloudActivity.h"
 #import <SCSoundCloud.h>
 #import <SCUI.h>
+#import "SHKConfiguration.h"
 
 @interface MSSoundCloudActivity ()
 
@@ -53,9 +54,9 @@
 {
     for (id activityItem in activityItems) {
         if ([activityItem isKindOfClass:[NSURL class]]) {
-            [SCSoundCloud setClientID:@"9e73d8a3534e898c8239a68c06e58824"
-                               secret:@"0a49e887340068b3173c94fdaa35be76"
-                          redirectURL:[NSURL URLWithString:@"uke101://oauth"]];
+            [SCSoundCloud setClientID:SHKCONFIG(soundCloudAPIClientID)
+                               secret:SHKCONFIG(soundCloudAPIClientSecret)
+                          redirectURL:[NSURL URLWithString:SHKCONFIG(soundCloudAPIRedirectURL)]];
             _url = activityItem;
         }
     }
