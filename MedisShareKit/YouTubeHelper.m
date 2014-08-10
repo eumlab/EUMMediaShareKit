@@ -10,6 +10,10 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "GTMHTTPUploadFetcher.h"
 
+NSString *const GTLYouTubeVideoStatusPrivate = @"private";
+NSString *const GTLYouTubeVideoStatusPublic = @"public";
+NSString *const GTLYouTubeVideoStatusUnlisted = @"unlisted";
+
 @interface YouTubeHelper ()
 
 @property (strong) GTLServiceYouTube *youTubeService;
@@ -63,7 +67,11 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
     [GTMOAuth2ViewControllerTouch removeAuthFromKeychainForName:kKeychainItemName];
 }
 
-- (void)uploadPrivateVideoWithTitle:(NSString *)title description:(NSString *)description commaSeperatedTags:(NSString *)tags andPath:(NSString *)path {
+- (void)uploadPrivateVideoWithTitle:(NSString *)title
+                        description:(NSString *)description
+                 commaSeperatedTags:(NSString *)tags
+                      privacyStatus:(NSString *)privacyStatus
+                            andPath:(NSString *)path {
     
     if (![self isAuthorized]) {
         NSLog(@"YouTubeHelper: User not authenticated yet.");
@@ -91,7 +99,7 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
         self.videoPath = path;
     }
     
-    [self prepareUploadVideo];
+    [self prepareUploadVideo:privacyStatus];
 }
 
 #pragma mark Misk Tasks
@@ -122,6 +130,10 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
 
 - (BOOL)isAuthorized {
     return ((GTMOAuth2Authentication*)self.youTubeService.authorizer).canAuthorize;
+}
+
+- (NSString *)userEmail {
+    return ((GTMOAuth2Authentication*)self.youTubeService.authorizer).userEmail;
 }
 
 #pragma mark Tasks
@@ -172,11 +184,11 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
 //    [_currentViewController.navigationController pushViewController:viewController animated:YES];
 }
 
-- (void)prepareUploadVideo {
+- (void)prepareUploadVideo:(NSString *)privacyStatus {
     
     // Status.
     GTLYouTubeVideoStatus *status = [GTLYouTubeVideoStatus object];
-    status.privacyStatus = @"private";
+    status.privacyStatus = privacyStatus;
     
     // Snippet.
     GTLYouTubeVideoSnippet *snippet = [GTLYouTubeVideoSnippet object];

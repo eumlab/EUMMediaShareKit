@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^YoutubeViewControllerFinishBlock)(BOOL completed);
+
 @interface MSYoutubeViewController : UITableViewController
 
 @property (strong, nonatomic) NSURL *url;
+@property (strong, nonatomic) YoutubeViewControllerFinishBlock finishBlock;
 
 @end

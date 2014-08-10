@@ -9,12 +9,15 @@
 #import "MSYoutubeViewController.h"
 #import "YouTubeHelper.h"
 
-@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UITableViewDelegate, UITableViewDataSource>
+NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
+
+@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) YouTubeHelper *helper;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 
 @end
 
@@ -22,21 +25,95 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 @implementation MSYoutubeViewController
 
+#pragma mark ViewLiftCycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _helper = [[YouTubeHelper alloc] initWithDelegate:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    if (self.helper.isAuthorized) {
+        self.accountLabel.text = self.helper.userEmail;
+    }
+    
+    NSInteger lastSelectPrivacyIndex = [[NSUserDefaults standardUserDefaults] integerForKey:UD_KEY_LAST_SELECT_PRIVACY];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:lastSelectPrivacyIndex inSection:2] animated:YES scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!self.helper.isAuthorized) {
+        [self.helper authenticate];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSUserDefaults standardUserDefaults] setInteger:[self selectedPrivacyIndex] forKey:UD_KEY_LAST_SELECT_PRIVACY];
+}
+
+#pragma mark Data
+
+- (NSInteger)selectedPrivacyIndex {
+    for (NSInteger i = 0; i<3; i++) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:2]];
+        if (cell.isSelected) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+#pragma mark Action
+
 - (IBAction)cancel:(id)sender {
+    self.finishBlock(NO);
 }
 
 - (IBAction)send:(id)sender {
-    _helper = [[YouTubeHelper alloc] initWithDelegate:self];
-    
-    if (_helper.isAuthorized) {
-        [self authenticationSuccess];
+    if (self.helper.isAuthorized) {
+        NSString *privacyStatus;
+        switch ([self selectedPrivacyIndex]) {
+            case 0:
+                privacyStatus = GTLYouTubeVideoStatusPublic;
+                break;
+            case 1:
+                privacyStatus = GTLYouTubeVideoStatusPrivate;
+                break;
+            case 2:
+                privacyStatus = GTLYouTubeVideoStatusUnlisted;
+                break;
+                
+            default:
+                break;
+        }
+        [self.helper uploadPrivateVideoWithTitle:self.titleTextField.text description:self.descriptionTextField.text commaSeperatedTags:nil privacyStatus:privacyStatus andPath:self.url.path];
+
     } else {
-        [_helper authenticate];
+        [self.helper authenticate];
     }
 }
 
 #pragma mark TableView
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 3 && indexPath.row == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Logout?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        [alertView show];
+    }
+}
+
+#pragma mark UIAlertView Delegate 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self.helper signOut];
+        self.finishBlock(NO);
+    }
+}
 
 #pragma mark YouTubeHelper Delegate
 
@@ -52,24 +129,17 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (void)showAuthenticationViewController:(UIViewController *)authView;
 {
-    [self presentViewController:authView animated:YES completion:^{
-        NSLog(@"presented");
-    }];
+    [self presentViewController:authView animated:YES completion:nil];
 }
 
 - (void)authenticationFail:(NSError *)error;
 {
     NSLog(@"Error %@", error.description);
-//    [self activityDidFinish:NO];
+    self.finishBlock(NO);
 }
 
 - (void)authenticationSuccess {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"RARBG.com" withExtension:@"mp4"];
-    [_helper uploadPrivateVideoWithTitle:@"4 Video Title"
-                             description:@"4 Video Description"
-                      commaSeperatedTags:@"4 VideoTag1, 4 VideoTag2"
-                                 andPath:url.path];
-    
+    self.accountLabel.text = self.helper.userEmail;
 }
 
 - (void)uploadProgressPercentage:(int)percentage;
@@ -78,11 +148,11 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 }
 
 - (void)uploadSuccess {
-//    [self activityDidFinish:YES];
+    self.finishBlock(YES);
 }
 
 - (void)uploadFail:(NSError *)error {
-//    [self activityDidFinish:NO];
+    self.finishBlock(NO);
 }
 
 @end

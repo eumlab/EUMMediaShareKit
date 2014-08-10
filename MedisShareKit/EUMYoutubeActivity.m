@@ -57,14 +57,19 @@
     }
 }
 
-
 - (UIViewController *)activityViewController {
     if (!self.youtubeViewController) {
        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"youtube" bundle:nil];
-        self.youtubeViewController = [mainStoryboard instantiateInitialViewController];
-//        self.youtubeViewController.url = self.url;
+        UINavigationController *navigationController = [mainStoryboard instantiateInitialViewController];
+        
+        self.youtubeViewController = (id)navigationController.topViewController;
+        self.youtubeViewController.url = self.url;
+        __block typeof(self) weakSelf = self;
+        self.youtubeViewController.finishBlock = ^(BOOL completed) {
+            [weakSelf activityDidFinish:completed];
+        };
     }
-    return self.youtubeViewController;
+    return self.youtubeViewController.navigationController;
 }
 
 

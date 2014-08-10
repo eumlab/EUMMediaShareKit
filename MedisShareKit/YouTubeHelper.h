@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Nirbhay Agarwal. All rights reserved.
 //
 
+extern NSString *const GTLYouTubeVideoStatusPrivate;
+extern NSString *const GTLYouTubeVideoStatusPublic;
+extern NSString *const GTLYouTubeVideoStatusUnlisted;
+
 #import <Foundation/Foundation.h>
 
 #import "GTLYouTube.h"
@@ -37,6 +41,7 @@
 
 @property (weak) id <YouTubeHelperDelegate> delegate;
 @property (readonly, nonatomic) BOOL isAuthorized;
+@property (readonly, nonatomic) NSString *userEmail;
 
 //Initialization function
 - (id)initWithDelegate:(id <YouTubeHelperDelegate>)delegate;
@@ -51,6 +56,7 @@
 - (void)uploadPrivateVideoWithTitle:(NSString *)title
                         description:(NSString *)description
                  commaSeperatedTags:(NSString *)tags
+                      privacyStatus:(NSString *)privacyStatus
                             andPath:(NSString *)path;
 
 @end
