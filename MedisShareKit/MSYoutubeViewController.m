@@ -7,13 +7,13 @@
 //
 
 #import "MSYoutubeViewController.h"
-#import "YouTubeHelper.h"
+#import "MSYouTubeHelper.h"
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
 @interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) YouTubeHelper *helper;
+@property (strong, nonatomic) MSYouTubeHelper *helper;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
@@ -29,7 +29,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _helper = [[YouTubeHelper alloc] initWithDelegate:self];
+    _helper = [[MSYouTubeHelper alloc] initWithDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

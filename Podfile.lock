@@ -1,4 +1,9 @@
 PODS:
+  - CocoaSoundCloudAPI (1.0.2):
+    - NXOAuth2Client (= 1.2.2)
+  - CocoaSoundCloudUI (1.0.9):
+    - CocoaSoundCloudAPI (~> 1.0.2)
+    - OHAttributedLabel
   - Google-API-Client/Common (0.1.1):
     - gtm-oauth2
     - GTMHTTPFetcher
@@ -9,13 +14,25 @@ PODS:
   - gtm-oauth2 (0.1.0):
     - GTMHTTPFetcher
   - GTMHTTPFetcher (0.1.0)
+  - NXOAuth2Client (1.2.2)
+  - OHAttributedLabel (3.5.4)
 
 DEPENDENCIES:
+  - CocoaSoundCloudAPI
+  - CocoaSoundCloudUI (from `git@github.com:eumlab/CocoaSoundCloudUI.git`)
   - Google-API-Client/YouTube
 
+EXTERNAL SOURCES:
+  CocoaSoundCloudUI:
+    :git: git@github.com:eumlab/CocoaSoundCloudUI.git
+
 SPEC CHECKSUMS:
+  CocoaSoundCloudAPI: 4e762deae813dbd34311780f19d7130d0c795b58
+  CocoaSoundCloudUI: 1d81de626c78b3131e6e3f37060e7bd9254aa05d
   Google-API-Client: 69cd2a04c649abe9f3fa6695bc4bb8965373f204
   gtm-oauth2: 64f2d404a50676ab63b5437a02a7567da8f8b7fa
   GTMHTTPFetcher: 0f02d5a5803dd08736462981064de6a7f59cf9bd
+  NXOAuth2Client: d0d18286b0d47da2b066bc3ab4e95157b2890675
+  OHAttributedLabel: fcf1d1245b4c8d2df94da91369b1474901d7fb14
 
 COCOAPODS: 0.33.1

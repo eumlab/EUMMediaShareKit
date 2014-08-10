@@ -21,14 +21,16 @@
 		7C9FD5631994613E00D0E6D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5451994613E00D0E6D8 /* UIKit.framework */; };
 		7C9FD56B1994613E00D0E6D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD5691994613E00D0E6D8 /* InfoPlist.strings */; };
 		7C9FD56D1994613E00D0E6D8 /* MedisShareKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD56C1994613E00D0E6D8 /* MedisShareKitTests.m */; };
-		7C9FD57B1994618A00D0E6D8 /* YouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5771994618A00D0E6D8 /* YouTubeHelper.m */; };
-		7C9FD57C1994618A00D0E6D8 /* EUMYoutubeActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5791994618A00D0E6D8 /* EUMYoutubeActivity.m */; };
+		7C9FD57B1994618A00D0E6D8 /* MSYouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5771994618A00D0E6D8 /* MSYouTubeHelper.m */; };
+		7C9FD57C1994618A00D0E6D8 /* MSYoutubeActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5791994618A00D0E6D8 /* MSYoutubeActivity.m */; };
 		7C9FD57D1994618A00D0E6D8 /* RARBG.com.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD57A1994618A00D0E6D8 /* RARBG.com.mp4 */; };
 		7C9FD58619946F3C00D0E6D8 /* MSYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD58419946F3C00D0E6D8 /* MSYoutubeViewController.m */; };
 		7C9FD58A1994730100D0E6D8 /* ULShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FD5891994730100D0E6D8 /* ULShareController.m */; };
 		7C9FD58E1994768F00D0E6D8 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD58C1994768F00D0E6D8 /* AppIcon60x60.png */; };
 		7C9FD58F1994768F00D0E6D8 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9FD58D1994768F00D0E6D8 /* AppIcon60x60@2x.png */; };
 		7CED118A1997019D0081FF73 /* MSYoutubeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11891997019D0081FF73 /* MSYoutubeTableViewCell.m */; };
+		7CED118D1997141E0081FF73 /* MSSoundCloudActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED118C1997141E0081FF73 /* MSSoundCloudActivity.m */; };
+		7CED118F199715670081FF73 /* over_star_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CED118E199715670081FF73 /* over_star_01.mp3 */; };
 		7CFEEFD11994B65B00D8CF77 /* youtube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */; };
 		A758C658F7864A41B6FA06AD /* libPods-MedisShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2E76BDAD8444C0A66CBD49 /* libPods-MedisShareKit.a */; };
 /* End PBXBuildFile section */
@@ -63,10 +65,10 @@
 		7C9FD5681994613E00D0E6D8 /* MedisShareKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MedisShareKitTests-Info.plist"; sourceTree = "<group>"; };
 		7C9FD56A1994613E00D0E6D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C9FD56C1994613E00D0E6D8 /* MedisShareKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedisShareKitTests.m; sourceTree = "<group>"; };
-		7C9FD5761994618A00D0E6D8 /* YouTubeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeHelper.h; sourceTree = "<group>"; };
-		7C9FD5771994618A00D0E6D8 /* YouTubeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeHelper.m; sourceTree = "<group>"; };
-		7C9FD5781994618A00D0E6D8 /* EUMYoutubeActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUMYoutubeActivity.h; sourceTree = "<group>"; };
-		7C9FD5791994618A00D0E6D8 /* EUMYoutubeActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUMYoutubeActivity.m; sourceTree = "<group>"; };
+		7C9FD5761994618A00D0E6D8 /* MSYouTubeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSYouTubeHelper.h; sourceTree = "<group>"; };
+		7C9FD5771994618A00D0E6D8 /* MSYouTubeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSYouTubeHelper.m; sourceTree = "<group>"; };
+		7C9FD5781994618A00D0E6D8 /* MSYoutubeActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSYoutubeActivity.h; sourceTree = "<group>"; };
+		7C9FD5791994618A00D0E6D8 /* MSYoutubeActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSYoutubeActivity.m; sourceTree = "<group>"; };
 		7C9FD57A1994618A00D0E6D8 /* RARBG.com.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RARBG.com.mp4; sourceTree = "<group>"; };
 		7C9FD58319946F3C00D0E6D8 /* MSYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSYoutubeViewController.h; sourceTree = "<group>"; };
 		7C9FD58419946F3C00D0E6D8 /* MSYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSYoutubeViewController.m; sourceTree = "<group>"; };
@@ -76,6 +78,9 @@
 		7C9FD58D1994768F00D0E6D8 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon60x60@2x.png"; sourceTree = "<group>"; };
 		7CED11881997019D0081FF73 /* MSYoutubeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSYoutubeTableViewCell.h; sourceTree = "<group>"; };
 		7CED11891997019D0081FF73 /* MSYoutubeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSYoutubeTableViewCell.m; sourceTree = "<group>"; };
+		7CED118B1997141E0081FF73 /* MSSoundCloudActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSoundCloudActivity.h; sourceTree = "<group>"; };
+		7CED118C1997141E0081FF73 /* MSSoundCloudActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSoundCloudActivity.m; sourceTree = "<group>"; };
+		7CED118E199715670081FF73 /* over_star_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = over_star_01.mp3; sourceTree = "<group>"; };
 		7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = youtube.storyboard; sourceTree = "<group>"; };
 		BC2E76BDAD8444C0A66CBD49 /* libPods-MedisShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MedisShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF311622CAFF462C8FD239D7 /* Pods-MedisShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedisShareKit.xcconfig"; path = "Pods/Pods-MedisShareKit.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +156,11 @@
 				7C9FD5571994613E00D0E6D8 /* MSViewController.m */,
 				7C9FD5881994730100D0E6D8 /* ULShareController.h */,
 				7C9FD5891994730100D0E6D8 /* ULShareController.m */,
+				7CED118B1997141E0081FF73 /* MSSoundCloudActivity.h */,
+				7CED118C1997141E0081FF73 /* MSSoundCloudActivity.m */,
 				7CED11871996F8150081FF73 /* Youtube */,
 				7C9FD57A1994618A00D0E6D8 /* RARBG.com.mp4 */,
+				7CED118E199715670081FF73 /* over_star_01.mp3 */,
 				7C9FD5591994613E00D0E6D8 /* Images.xcassets */,
 				7C9FD5481994613E00D0E6D8 /* Supporting Files */,
 			);
@@ -191,15 +199,15 @@
 		7CED11871996F8150081FF73 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
-				7C9FD5781994618A00D0E6D8 /* EUMYoutubeActivity.h */,
-				7C9FD5791994618A00D0E6D8 /* EUMYoutubeActivity.m */,
+				7C9FD5781994618A00D0E6D8 /* MSYoutubeActivity.h */,
+				7C9FD5791994618A00D0E6D8 /* MSYoutubeActivity.m */,
 				7C9FD58319946F3C00D0E6D8 /* MSYoutubeViewController.h */,
 				7C9FD58419946F3C00D0E6D8 /* MSYoutubeViewController.m */,
 				7CED11881997019D0081FF73 /* MSYoutubeTableViewCell.h */,
 				7CED11891997019D0081FF73 /* MSYoutubeTableViewCell.m */,
 				7CFEEFD01994B65B00D8CF77 /* youtube.storyboard */,
-				7C9FD5761994618A00D0E6D8 /* YouTubeHelper.h */,
-				7C9FD5771994618A00D0E6D8 /* YouTubeHelper.m */,
+				7C9FD5761994618A00D0E6D8 /* MSYouTubeHelper.h */,
+				7C9FD5771994618A00D0E6D8 /* MSYouTubeHelper.m */,
 				7C9FD58C1994768F00D0E6D8 /* AppIcon60x60.png */,
 				7C9FD58D1994768F00D0E6D8 /* AppIcon60x60@2x.png */,
 			);
@@ -289,6 +297,7 @@
 				7C9FD55A1994613E00D0E6D8 /* Images.xcassets in Resources */,
 				7C9FD58E1994768F00D0E6D8 /* AppIcon60x60.png in Resources */,
 				7C9FD54C1994613E00D0E6D8 /* InfoPlist.strings in Resources */,
+				7CED118F199715670081FF73 /* over_star_01.mp3 in Resources */,
 				7C9FD58F1994768F00D0E6D8 /* AppIcon60x60@2x.png in Resources */,
 				7C9FD5551994613E00D0E6D8 /* Main.storyboard in Resources */,
 				7CFEEFD11994B65B00D8CF77 /* youtube.storyboard in Resources */,
@@ -359,13 +368,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9FD58619946F3C00D0E6D8 /* MSYoutubeViewController.m in Sources */,
+				7CED118D1997141E0081FF73 /* MSSoundCloudActivity.m in Sources */,
 				7C9FD5521994613E00D0E6D8 /* MSAppDelegate.m in Sources */,
 				7C9FD5581994613E00D0E6D8 /* MSViewController.m in Sources */,
 				7CED118A1997019D0081FF73 /* MSYoutubeTableViewCell.m in Sources */,
 				7C9FD54E1994613E00D0E6D8 /* main.m in Sources */,
-				7C9FD57C1994618A00D0E6D8 /* EUMYoutubeActivity.m in Sources */,
+				7C9FD57C1994618A00D0E6D8 /* MSYoutubeActivity.m in Sources */,
 				7C9FD58A1994730100D0E6D8 /* ULShareController.m in Sources */,
-				7C9FD57B1994618A00D0E6D8 /* YouTubeHelper.m in Sources */,
+				7C9FD57B1994618A00D0E6D8 /* MSYouTubeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

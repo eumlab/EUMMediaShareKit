@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EUMYoutubeActivity : UIActivity
+@interface MSYoutubeActivity : UIActivity
 
 @end

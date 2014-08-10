@@ -37,7 +37,7 @@ extern NSString *const GTLYouTubeVideoStatusUnlisted;
 
 /*---------------- YoutubeHelper ----------------*/
 
-@interface YouTubeHelper : NSObject
+@interface MSYouTubeHelper : NSObject
 
 @property (weak) id <YouTubeHelperDelegate> delegate;
 @property (readonly, nonatomic) BOOL isAuthorized;

@@ -6,17 +6,17 @@
 //  Copyright (c) 2014年 EUMLab. All rights reserved.
 //
 
-#import "EUMYoutubeActivity.h"
+#import "MSYoutubeActivity.h"
 #import "MSYoutubeViewController.h"
 
-@interface EUMYoutubeActivity ()
+@interface MSYoutubeActivity ()
 
 @property (strong, nonatomic) NSURL *url;
 @property (nonatomic, strong) MSYoutubeViewController *youtubeViewController;
 
 @end
 
-@implementation EUMYoutubeActivity
+@implementation MSYoutubeActivity
 
 + (UIActivityCategory)activityCategory
 {

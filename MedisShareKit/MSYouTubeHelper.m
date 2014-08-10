@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Nirbhay Agarwal. All rights reserved.
 //
 
-#import "YouTubeHelper.h"
+#import "MSYouTubeHelper.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "GTMHTTPUploadFetcher.h"
 
@@ -14,7 +14,7 @@ NSString *const GTLYouTubeVideoStatusPrivate = @"private";
 NSString *const GTLYouTubeVideoStatusPublic = @"public";
 NSString *const GTLYouTubeVideoStatusUnlisted = @"unlisted";
 
-@interface YouTubeHelper ()
+@interface MSYouTubeHelper ()
 
 @property (strong) GTLServiceYouTube *youTubeService;
 
@@ -32,7 +32,7 @@ NSString *const GTLYouTubeVideoStatusUnlisted = @"unlisted";
 
 static NSString* kKeychainItemName = @"YoutubeHelper";
 
-@implementation YouTubeHelper
+@implementation MSYouTubeHelper
 
 #pragma mark Initialization
 
@@ -249,7 +249,7 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
                                     }
                                 }];
         
-        __weak YouTubeHelper *dummySelf = self;
+        __weak MSYouTubeHelper *dummySelf = self;
         _uploadFileTicket.uploadProgressBlock = ^(GTLServiceTicket *ticket,
                                                   unsigned long long numberOfBytesRead,
                                                   unsigned long long dataLength) {

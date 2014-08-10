@@ -7,7 +7,8 @@
 //
 
 #import "MSViewController.h"
-#import "EUMYoutubeActivity.h"
+#import "MSYoutubeActivity.h"
+#import "MSSoundCloudActivity.h"
 
 @interface MSViewController ()
 
@@ -27,12 +28,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)shareAudio:(id)sender {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"over_star_01" withExtension:@"mp3"];
+    
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc] initWithActivityItems:@[url]
+                                      applicationActivities:@[[MSSoundCloudActivity new]]];
+    controller.completionHandler = ^(NSString *activityType, BOOL completed){
+        NSLog(@"%@", activityType);
+        NSLog(@"%i", completed);
+    };
+    [self presentViewController:controller animated:YES completion:^{
+        
+    }];
+}
+
 - (IBAction)shareVideo:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"RARBG.com" withExtension:@"mp4"];
     
     UIActivityViewController *controller =
     [[UIActivityViewController alloc] initWithActivityItems:@[url]
-                                      applicationActivities:@[[EUMYoutubeActivity new]]];
+                                      applicationActivities:@[[MSYoutubeActivity new]]];
     controller.completionHandler = ^(NSString *activityType, BOOL completed){
         NSLog(@"%@", activityType);
         NSLog(@"%i", completed);
