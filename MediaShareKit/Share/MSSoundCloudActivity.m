@@ -36,7 +36,7 @@
 
 - (NSString *)activityTitle
 {
-    return @"Youtube";
+    return @"SoundCloud";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems

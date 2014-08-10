@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C9FD5421994613E00D0E6D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5411994613E00D0E6D8 /* Foundation.framework */; };
+		7C9FD5441994613E00D0E6D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */; };
+		7C9FD5461994613E00D0E6D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9FD5451994613E00D0E6D8 /* UIKit.framework */; };
+		7CED11AF19974FEB0081FF73 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11AD19974FEB0081FF73 /* AppIcon60x60.png */; };
+		7CED11B019974FEB0081FF73 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11AE19974FEB0081FF73 /* AppIcon60x60@2x.png */; };
+		7CED11B319974FF20081FF73 /* over_star_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11B119974FF20081FF73 /* over_star_01.mp3 */; };
+		7CED11B419974FF20081FF73 /* RARBG.com.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11B219974FF20081FF73 /* RARBG.com.mp4 */; };
+		7CED11B9199750020081FF73 /* MSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11B6199750020081FF73 /* MSAppDelegate.m */; };
+		7CED11BA199750020081FF73 /* MSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11B8199750020081FF73 /* MSViewController.m */; };
+		7CED11BD199750260081FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11BB199750260081FF73 /* Main.storyboard */; };
+		7CED11C01997502F0081FF73 /* ULShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11BF1997502F0081FF73 /* ULShareController.m */; };
+		7CED11D41997519A0081FF73 /* MSSoundCloudActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D31997519A0081FF73 /* MSSoundCloudActivity.m */; };
+		7CED11E01997519F0081FF73 /* MSYoutubeActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D61997519F0081FF73 /* MSYoutubeActivity.m */; };
+		7CED11E11997519F0081FF73 /* MSYouTubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11D81997519F0081FF73 /* MSYouTubeHelper.m */; };
+		7CED11E21997519F0081FF73 /* MSYoutubeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11DA1997519F0081FF73 /* MSYoutubeTableViewCell.m */; };
+		7CED11E31997519F0081FF73 /* MSYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11DC1997519F0081FF73 /* MSYoutubeViewController.m */; };
+		7CED11E51997519F0081FF73 /* youtube.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11DF1997519F0081FF73 /* youtube.storyboard */; };
+		7CED11E7199751C90081FF73 /* MediaShareKit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11E6199751C90081FF73 /* MediaShareKit-Info.plist */; };
+		7CED11EA199751DD0081FF73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CED11E9199751DD0081FF73 /* main.m */; };
+		7CED11EE199751F10081FF73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CED11EC199751F10081FF73 /* InfoPlist.strings */; };
+		A4AA1ACAEB53482C8FF22DDF /* libPods-MediaShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */; };
+		A758C658F7864A41B6FA06AD /* libPods-MediaShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7C9FD53E1994613E00D0E6D8 /* MediaShareKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaShareKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C9FD5411994613E00D0E6D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7C9FD5451994613E00D0E6D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7C9FD5601994613E00D0E6D8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7CED11AD19974FEB0081FF73 /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon60x60.png; path = MediaShareKit/AppIcon60x60.png; sourceTree = SOURCE_ROOT; };
+		7CED11AE19974FEB0081FF73 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon60x60@2x.png"; path = "MediaShareKit/AppIcon60x60@2x.png"; sourceTree = SOURCE_ROOT; };
+		7CED11B119974FF20081FF73 /* over_star_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = over_star_01.mp3; path = MediaShareKit/over_star_01.mp3; sourceTree = SOURCE_ROOT; };
+		7CED11B219974FF20081FF73 /* RARBG.com.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = RARBG.com.mp4; path = MediaShareKit/RARBG.com.mp4; sourceTree = SOURCE_ROOT; };
+		7CED11B5199750020081FF73 /* MSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAppDelegate.h; path = MediaShareKit/MSAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		7CED11B6199750020081FF73 /* MSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSAppDelegate.m; path = MediaShareKit/MSAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		7CED11B7199750020081FF73 /* MSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSViewController.h; path = MediaShareKit/MSViewController.h; sourceTree = SOURCE_ROOT; };
+		7CED11B8199750020081FF73 /* MSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSViewController.m; path = MediaShareKit/MSViewController.m; sourceTree = SOURCE_ROOT; };
+		7CED11BC199750260081FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MediaShareKit/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		7CED11BE1997502F0081FF73 /* ULShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ULShareController.h; path = MediaShareKit/Share/ULShareController.h; sourceTree = SOURCE_ROOT; };
+		7CED11BF1997502F0081FF73 /* ULShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ULShareController.m; path = MediaShareKit/Share/ULShareController.m; sourceTree = SOURCE_ROOT; };
+		7CED11D21997519A0081FF73 /* MSSoundCloudActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSoundCloudActivity.h; path = MediaShareKit/Share/MSSoundCloudActivity.h; sourceTree = SOURCE_ROOT; };
+		7CED11D31997519A0081FF73 /* MSSoundCloudActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSoundCloudActivity.m; path = MediaShareKit/Share/MSSoundCloudActivity.m; sourceTree = SOURCE_ROOT; };
+		7CED11D51997519F0081FF73 /* MSYoutubeActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSYoutubeActivity.h; path = MediaShareKit/Share/MSYoutubeActivity.h; sourceTree = SOURCE_ROOT; };
+		7CED11D61997519F0081FF73 /* MSYoutubeActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSYoutubeActivity.m; path = MediaShareKit/Share/MSYoutubeActivity.m; sourceTree = SOURCE_ROOT; };
+		7CED11D71997519F0081FF73 /* MSYouTubeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSYouTubeHelper.h; path = MediaShareKit/Share/MSYouTubeHelper.h; sourceTree = SOURCE_ROOT; };
+		7CED11D81997519F0081FF73 /* MSYouTubeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSYouTubeHelper.m; path = MediaShareKit/Share/MSYouTubeHelper.m; sourceTree = SOURCE_ROOT; };
+		7CED11D91997519F0081FF73 /* MSYoutubeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSYoutubeTableViewCell.h; path = MediaShareKit/Share/MSYoutubeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		7CED11DA1997519F0081FF73 /* MSYoutubeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSYoutubeTableViewCell.m; path = MediaShareKit/Share/MSYoutubeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		7CED11DB1997519F0081FF73 /* MSYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSYoutubeViewController.h; path = MediaShareKit/Share/MSYoutubeViewController.h; sourceTree = SOURCE_ROOT; };
+		7CED11DC1997519F0081FF73 /* MSYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSYoutubeViewController.m; path = MediaShareKit/Share/MSYoutubeViewController.m; sourceTree = SOURCE_ROOT; };
+		7CED11DF1997519F0081FF73 /* youtube.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = youtube.storyboard; path = MediaShareKit/Share/youtube.storyboard; sourceTree = SOURCE_ROOT; };
+		7CED11E6199751C90081FF73 /* MediaShareKit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MediaShareKit-Info.plist"; path = "MediaShareKit/MediaShareKit-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7CED11E9199751DD0081FF73 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MediaShareKit/main.m; sourceTree = SOURCE_ROOT; };
+		7CED11EB199751E30081FF73 /* MediaShareKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MediaShareKit-Prefix.pch"; path = "MediaShareKit/MediaShareKit-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		7CED11ED199751F10081FF73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = MediaShareKit/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
+		FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
+		FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaShareKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C9FD53B1994613E00D0E6D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C9FD5441994613E00D0E6D8 /* CoreGraphics.framework in Frameworks */,
+				7C9FD5461994613E00D0E6D8 /* UIKit.framework in Frameworks */,
+				7C9FD5421994613E00D0E6D8 /* Foundation.framework in Frameworks */,
+				A758C658F7864A41B6FA06AD /* libPods-MediaShareKit.a in Frameworks */,
+				A4AA1ACAEB53482C8FF22DDF /* libPods-MediaShareKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C9FD5351994613E00D0E6D8 = {
+			isa = PBXGroup;
+			children = (
+				7C9FD5471994613E00D0E6D8 /* MediaShareKit */,
+				7C9FD5401994613E00D0E6D8 /* Frameworks */,
+				7C9FD53F1994613E00D0E6D8 /* Products */,
+				BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */,
+				FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
+		};
+		7C9FD53F1994613E00D0E6D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C9FD53E1994613E00D0E6D8 /* MediaShareKit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C9FD5401994613E00D0E6D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C9FD5411994613E00D0E6D8 /* Foundation.framework */,
+				7C9FD5431994613E00D0E6D8 /* CoreGraphics.framework */,
+				7C9FD5451994613E00D0E6D8 /* UIKit.framework */,
+				7C9FD5601994613E00D0E6D8 /* XCTest.framework */,
+				BC2E76BDAD8444C0A66CBD49 /* libPods-MediaShareKit.a */,
+				FFA4A1EFD1644F1DBD04DB86 /* libPods-MediaShareKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C9FD5471994613E00D0E6D8 /* MediaShareKit */ = {
+			isa = PBXGroup;
+			children = (
+				7CED11B5199750020081FF73 /* MSAppDelegate.h */,
+				7CED11B6199750020081FF73 /* MSAppDelegate.m */,
+				7CED11B7199750020081FF73 /* MSViewController.h */,
+				7CED11B8199750020081FF73 /* MSViewController.m */,
+				7CED11BB199750260081FF73 /* Main.storyboard */,
+				7CED11BE1997502F0081FF73 /* ULShareController.h */,
+				7CED11BF1997502F0081FF73 /* ULShareController.m */,
+				7CED119019974CE10081FF73 /* SoundCloud */,
+				7CED11871996F8150081FF73 /* Youtube */,
+				7CED11B119974FF20081FF73 /* over_star_01.mp3 */,
+				7CED11B219974FF20081FF73 /* RARBG.com.mp4 */,
+				7CED11AD19974FEB0081FF73 /* AppIcon60x60.png */,
+				7CED11AE19974FEB0081FF73 /* AppIcon60x60@2x.png */,
+				7C9FD5481994613E00D0E6D8 /* Supporting Files */,
+			);
+			path = MediaShareKit;
+			sourceTree = "<group>";
+		};
+		7C9FD5481994613E00D0E6D8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CED11E6199751C90081FF73 /* MediaShareKit-Info.plist */,
+				7CED11EC199751F10081FF73 /* InfoPlist.strings */,
+				7CED11E9199751DD0081FF73 /* main.m */,
+				7CED11EB199751E30081FF73 /* MediaShareKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CED11871996F8150081FF73 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				7CED11D51997519F0081FF73 /* MSYoutubeActivity.h */,
+				7CED11D61997519F0081FF73 /* MSYoutubeActivity.m */,
+				7CED11D71997519F0081FF73 /* MSYouTubeHelper.h */,
+				7CED11D81997519F0081FF73 /* MSYouTubeHelper.m */,
+				7CED11D91997519F0081FF73 /* MSYoutubeTableViewCell.h */,
+				7CED11DA1997519F0081FF73 /* MSYoutubeTableViewCell.m */,
+				7CED11DB1997519F0081FF73 /* MSYoutubeViewController.h */,
+				7CED11DC1997519F0081FF73 /* MSYoutubeViewController.m */,
+				7CED11DF1997519F0081FF73 /* youtube.storyboard */,
+			);
+			name = Youtube;
+			sourceTree = "<group>";
+		};
+		7CED119019974CE10081FF73 /* SoundCloud */ = {
+			isa = PBXGroup;
+			children = (
+				7CED11D21997519A0081FF73 /* MSSoundCloudActivity.h */,
+				7CED11D31997519A0081FF73 /* MSSoundCloudActivity.m */,
+			);
+			name = SoundCloud;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C9FD53D1994613E00D0E6D8 /* MediaShareKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C9FD5701994613E00D0E6D8 /* Build configuration list for PBXNativeTarget "MediaShareKit" */;
+			buildPhases = (
+				D19BF3476EF143F88A0CE0C5 /* Check Pods Manifest.lock */,
+				7C9FD53A1994613E00D0E6D8 /* Sources */,
+				7C9FD53B1994613E00D0E6D8 /* Frameworks */,
+				7C9FD53C1994613E00D0E6D8 /* Resources */,
+				26FC87932AD84226AFE0512F /* Copy Pods Resources */,
+				002AB325450D4D3BBA331175 /* Warn for TODO and FIXME comments */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediaShareKit;
+			productName = MediaShareKit;
+			productReference = 7C9FD53E1994613E00D0E6D8 /* MediaShareKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C9FD5361994613E00D0E6D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = EUMLab;
+			};
+			buildConfigurationList = 7C9FD5391994613E00D0E6D8 /* Build configuration list for PBXProject "MediaShareKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C9FD5351994613E00D0E6D8;
+			productRefGroup = 7C9FD53F1994613E00D0E6D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C9FD53D1994613E00D0E6D8 /* MediaShareKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C9FD53C1994613E00D0E6D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CED11BD199750260081FF73 /* Main.storyboard in Resources */,
+				7CED11EE199751F10081FF73 /* InfoPlist.strings in Resources */,
+				7CED11B019974FEB0081FF73 /* AppIcon60x60@2x.png in Resources */,
+				7CED11B419974FF20081FF73 /* RARBG.com.mp4 in Resources */,
+				7CED11B319974FF20081FF73 /* over_star_01.mp3 in Resources */,
+				7CED11AF19974FEB0081FF73 /* AppIcon60x60.png in Resources */,
+				7CED11E7199751C90081FF73 /* MediaShareKit-Info.plist in Resources */,
+				7CED11E51997519F0081FF73 /* youtube.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		002AB325450D4D3BBA331175 /* Warn for TODO and FIXME comments */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warn for TODO and FIXME comments";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"h|m|mm|c|cpp\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		26FC87932AD84226AFE0512F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-MediaShareKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D19BF3476EF143F88A0CE0C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C9FD53A1994613E00D0E6D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CED11E31997519F0081FF73 /* MSYoutubeViewController.m in Sources */,
+				7CED11E21997519F0081FF73 /* MSYoutubeTableViewCell.m in Sources */,
+				7CED11D41997519A0081FF73 /* MSSoundCloudActivity.m in Sources */,
+				7CED11B9199750020081FF73 /* MSAppDelegate.m in Sources */,
+				7CED11E11997519F0081FF73 /* MSYouTubeHelper.m in Sources */,
+				7CED11C01997502F0081FF73 /* ULShareController.m in Sources */,
+				7CED11E01997519F0081FF73 /* MSYoutubeActivity.m in Sources */,
+				7CED11BA199750020081FF73 /* MSViewController.m in Sources */,
+				7CED11EA199751DD0081FF73 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7CED11BB199750260081FF73 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CED11BC199750260081FF73 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7CED11EC199751F10081FF73 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CED11ED199751F10081FF73 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C9FD56E1994613E00D0E6D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7C9FD56F1994613E00D0E6D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C9FD5711994613E00D0E6D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MediaShareKit/MediaShareKit-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/MediaShareKit/MediaShareKit-Info.plist";
+				PRODUCT_NAME = MediaShareKit;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7C9FD5721994613E00D0E6D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MediaShareKit/MediaShareKit-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/MediaShareKit/MediaShareKit-Info.plist";
+				PRODUCT_NAME = MediaShareKit;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C9FD5391994613E00D0E6D8 /* Build configuration list for PBXProject "MediaShareKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C9FD56E1994613E00D0E6D8 /* Debug */,
+				7C9FD56F1994613E00D0E6D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C9FD5701994613E00D0E6D8 /* Build configuration list for PBXNativeTarget "MediaShareKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C9FD5711994613E00D0E6D8 /* Debug */,
+				7C9FD5721994613E00D0E6D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C9FD5361994613E00D0E6D8 /* Project object */;
+}
