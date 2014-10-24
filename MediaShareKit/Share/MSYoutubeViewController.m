@@ -12,13 +12,14 @@
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
-@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) MSYouTubeHelper *helper;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
 
@@ -31,6 +32,11 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _helper = [[MSYouTubeHelper alloc] initWithDelegate:self];
+    
+    [_titleTextField addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
+    [self checkSendButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -105,6 +111,27 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Logout?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         [alertView show];
     }
+}
+
+#pragma mark Text
+
+- (void)checkSendButton {
+    if (self.titleTextField.text.length > 0 &&
+        self.descriptionTextField.text.length > 0) {
+        self.doneButton.enabled = YES;
+    } else {
+        self.doneButton.enabled = NO;
+    }
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    [self checkSendButton];
+}
+
+-(void)textFieldDidChange:(UITextField *)textView
+{
+    [self checkSendButton];
 }
 
 #pragma mark UIAlertView Delegate 
