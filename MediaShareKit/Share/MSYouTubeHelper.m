@@ -13,6 +13,7 @@
 NSString *const GTLYouTubeVideoStatusPrivate = @"private";
 NSString *const GTLYouTubeVideoStatusPublic = @"public";
 NSString *const GTLYouTubeVideoStatusUnlisted = @"unlisted";
+NSString *const GTLYouTubeVideoUpdateResultNotification = @"GTLYouTubeVideoUpdateResultNotification";
 
 @interface MSYouTubeHelper ()
 
@@ -241,10 +242,12 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
                                     self->_uploadFileTicket = nil;
                                     if (error == nil) {
                                         [self.delegate uploadSuccess];
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:@{@"platform_reference":uploadedVideo.identifier, @"url": _videoPath}];
                                         NSLog(@"Video Uploaded : %@", uploadedVideo.snippet.title);
                         
                                     } else {
                                         [self.delegate uploadFail:error];
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:error];
                                         NSLog(@"Video Upload failed : %@", [error description]);
                                     }
                                 }];
@@ -276,6 +279,7 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
 //        };
     } else {
         [self.delegate uploadFail:nil]; //TODO: add error
+        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:[NSError errorWithDomain:@"uploaderror" code:0 userInfo:nil]];
         NSLog(@"YouTube Helper: invalid/missing file at location provided %@", path);
     }
 }

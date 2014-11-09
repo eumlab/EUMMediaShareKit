@@ -98,6 +98,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
                 break;
         }
         [self.helper uploadPrivateVideoWithTitle:self.titleTextField.text description:self.descriptionTextField.text commaSeperatedTags:nil privacyStatus:privacyStatus andPath:self.url.path];
+        self.finishBlock(YES);
 
     } else {
         [self.helper authenticate];
@@ -176,11 +177,11 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 }
 
 - (void)uploadSuccess {
-    self.finishBlock(YES);
+//    self.finishBlock(YES);
 }
 
 - (void)uploadFail:(NSError *)error {
-    self.finishBlock(NO);
+//    self.finishBlock(NO);
 }
 
 @end

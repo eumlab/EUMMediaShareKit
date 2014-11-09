@@ -11,6 +11,8 @@
 #import <SCUI.h>
 #import "SHKConfiguration.h"
 
+NSString *const SoundCloudAudioUpdateResultNotification = @"SoundCloudAudioUpdateResultNotification";
+
 @interface MSSoundCloudActivity ()
 
 @property (strong, nonatomic) NSURL *url;
@@ -73,6 +75,9 @@
                                                                                [self activityDidFinish:NO];
                                                                            }
                                                                            else {
+                                                                               NSURL *url = [NSURL URLWithString:trackInfo[@"permalink_url"]];
+                                                                               NSLog(@"%@", url.relativePath);
+                                                                               [[NSNotificationCenter defaultCenter] postNotificationName:SoundCloudAudioUpdateResultNotification object:@{@"platform_reference":url.relativePath, @"url": self.url}];
                                                                                [self activityDidFinish:YES];
                                                                            }
                                                                        }];

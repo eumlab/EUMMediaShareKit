@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const SoundCloudAudioUpdateResultNotification;
+
 @interface MSSoundCloudActivity : UIActivity
 
 @end

@@ -10,6 +10,8 @@ extern NSString *const GTLYouTubeVideoStatusPrivate;
 extern NSString *const GTLYouTubeVideoStatusPublic;
 extern NSString *const GTLYouTubeVideoStatusUnlisted;
 
+extern NSString *const GTLYouTubeVideoUpdateResultNotification;
+
 #import <Foundation/Foundation.h>
 
 #import "GTLYouTube.h"
