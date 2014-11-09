@@ -77,7 +77,7 @@ NSString *const SoundCloudAudioUpdateResultNotification = @"SoundCloudAudioUpdat
                                                                            else {
                                                                                NSURL *url = [NSURL URLWithString:trackInfo[@"permalink_url"]];
                                                                                NSLog(@"%@", url.relativePath);
-                                                                               [[NSNotificationCenter defaultCenter] postNotificationName:SoundCloudAudioUpdateResultNotification object:@{@"platform_reference":url.relativePath, @"url": self.url}];
+                                                                               [[NSNotificationCenter defaultCenter] postNotificationName:SoundCloudAudioUpdateResultNotification object:@{@"platform_reference":url.relativePath, @"url": self.url.path}];
                                                                                [self activityDidFinish:YES];
                                                                            }
                                                                        }];
