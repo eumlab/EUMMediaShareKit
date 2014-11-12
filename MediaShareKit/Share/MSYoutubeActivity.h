@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MSYoutubeActivity : UIActivity
-
+@property (nonatomic, strong) UIImage *icon;
 @end

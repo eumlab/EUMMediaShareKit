@@ -11,5 +11,5 @@
 extern NSString *const SoundCloudAudioUpdateResultNotification;
 
 @interface MSSoundCloudActivity : UIActivity
-
+@property (nonatomic, strong) UIImage *icon;
 @end

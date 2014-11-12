@@ -30,12 +30,15 @@
 
 - (UIImage *)activityImage
 {
+    if (self.icon != nil) {
+        return self.icon;
+    }
     return [UIImage imageNamed:@"AppIcon60x60"];
 }
 
 - (NSString *)activityTitle
 {
-    return @"Youtube";
+    return @"YouTube";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems

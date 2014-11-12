@@ -51,4 +51,33 @@
   [viewController presentViewController:controller animated:YES completion:^{}];
 }
 
++ (void)shareVideoWithURL:(NSURL *)url
+       FromViewController:(UIViewController *)viewController
+                 complete:(UIActivityViewControllerCompletionHandler)
+completionHandler andIcon:(UIImage *)icon{
+    MSYoutubeActivity *ac = [MSYoutubeActivity new];
+    ac.icon = icon;
+    UIActivityViewController *controller = [[UIActivityViewController alloc]
+                                            initWithActivityItems:@[ url ]
+                                            applicationActivities:@[ ac ]];
+    controller.completionHandler = completionHandler;
+    [viewController presentViewController:controller animated:YES completion:^{}];
+}
+
++ (void)shareAudioWithURL:(NSURL *)url
+       FromViewController:(UIViewController *)viewController
+                 complete:(UIActivityViewControllerCompletionHandler)
+completionHandler andIcon:(UIImage *)icon{
+    MSSoundCloudActivity *ac = [MSSoundCloudActivity new];
+    ac.icon = icon;
+    UIActivityViewController *controller = [[UIActivityViewController alloc]
+                                            initWithActivityItems:@[ url ]
+                                            applicationActivities:@[ ac ]];
+    controller.completionHandler = completionHandler;
+    [viewController presentViewController:controller animated:YES completion:^{}];
+    
+    
+}
+
+
 @end

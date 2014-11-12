@@ -24,4 +24,15 @@
                  complete:(UIActivityViewControllerCompletionHandler)
     completionHandler;
 
++ (void)shareVideoWithURL:(NSURL *)url
+       FromViewController:(UIViewController *)viewController
+                 complete:(UIActivityViewControllerCompletionHandler)
+completionHandler andIcon:(UIImage *)icon;
+
++ (void)shareAudioWithURL:(NSURL *)url
+       FromViewController:(UIViewController *)viewController
+                 complete:(UIActivityViewControllerCompletionHandler)
+completionHandler andIcon:(UIImage *)icon;
+
+
 @end

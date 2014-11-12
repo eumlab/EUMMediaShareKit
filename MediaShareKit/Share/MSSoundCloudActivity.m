@@ -34,6 +34,9 @@ NSString *const SoundCloudAudioUpdateResultNotification = @"SoundCloudAudioUpdat
 
 - (UIImage *)activityImage
 {
+    if (self.icon != nil) {
+        return self.icon;
+    }
     return [UIImage imageNamed:@"AppIcon60x60"];
 }
 
