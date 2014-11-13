@@ -29,6 +29,8 @@ NSString *const GTLYouTubeVideoUpdateResultNotification = @"GTLYouTubeVideoUpdat
 @property (strong) NSString* clientID;
 @property (strong) NSString* clientSecret;
 
+@property (strong) UINavigationController *vc;
+
 @end
 
 static NSString* kKeychainItemName = @"YoutubeHelper";
@@ -180,9 +182,16 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
                                                                                               delegate:self
                                                                                       finishedSelector:@selector(viewController:finishedWithAuth:error:)];
     
-    [_delegate showAuthenticationViewController:viewController];
+    self.vc = [[UINavigationController alloc] initWithRootViewController:viewController];
+    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(done)];
+    [_delegate showAuthenticationViewController:self.vc];
+    
 //    [_currentViewController presentViewController:viewController animated:YES completion:nil];
 //    [_currentViewController.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)done{
+    [self.vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)prepareUploadVideo:(NSString *)privacyStatus {

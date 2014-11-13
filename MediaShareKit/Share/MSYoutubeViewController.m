@@ -52,9 +52,6 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!self.helper.isAuthorized) {
-        [self.helper authenticate];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -109,21 +106,38 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 3 && indexPath.row == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Logout?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-        [alertView show];
+        if (indexPath.section == 3 && indexPath.row == 0) {
+            if (!self.helper.isAuthorized) {
+                [self.helper authenticate];
+            }
+            else{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Do you want to logout your YouTube account right now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Logout", nil];
+                [alertView show];
+            }
+        }
     }
 }
 
 #pragma mark Text
 
 - (void)checkSendButton {
+    if (!self.helper.isAuthorized) {
+        self.doneButton.enabled = NO;
+        self.doneButton.tintColor = [UIColor lightGrayColor];
+        
+        return;
+    }
+    
     if (self.titleTextField.text.length > 0 &&
         self.descriptionTextField.text.length > 0) {
         self.doneButton.enabled = YES;
+        self.doneButton.tintColor = self.navigationController.navigationBar.tintColor;
     } else {
         self.doneButton.enabled = NO;
+        self.doneButton.tintColor = [UIColor lightGrayColor];
     }
 }
+
 
 -(void)textViewDidChange:(UITextView *)textView
 {
