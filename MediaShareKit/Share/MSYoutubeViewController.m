@@ -9,6 +9,9 @@
 #import "MSYoutubeViewController.h"
 #import "MSYouTubeHelper.h"
 #import "SHKConfiguration.h"
+#import "JGProgressHUDPieIndicatorView.h"
+#import "JGProgressHUDFadeZoomAnimation.h"
+#import "SCLAlertView.h"
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
@@ -20,12 +23,15 @@ NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (strong, nonatomic) JGProgressHUD *prototypeHUD;
+@property (strong, nonatomic) NSString *identifier;
 
 @end
 
 static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 @implementation MSYoutubeViewController
+
 
 #pragma mark ViewLiftCycle
 
@@ -37,6 +43,23 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
     [self checkSendButton];
+    
+    
+    JGProgressHUD *HUD = [[JGProgressHUD alloc] initWithStyle:JGProgressHUDStyleLight];
+    HUD.interactionType = JGProgressHUDInteractionTypeBlockNoTouches;
+    
+    
+    JGProgressHUDFadeZoomAnimation *an = [JGProgressHUDFadeZoomAnimation animation];
+    HUD.animation = an;
+    
+    HUD.HUDView.layer.shadowColor = [UIColor blackColor].CGColor;
+    HUD.HUDView.layer.shadowOffset = CGSizeZero;
+    HUD.HUDView.layer.shadowOpacity = 0.4f;
+    HUD.HUDView.layer.shadowRadius = 8.0f;
+    
+    HUD.delegate = self;
+    self.prototypeHUD = HUD;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,10 +97,21 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark Action
 
 - (IBAction)cancel:(id)sender {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.titleTextField resignFirstResponder];
+    [self.descriptionTextField resignFirstResponder];
+    
+    [self.helper cancelUpload];
     self.finishBlock(NO);
 }
 
 - (IBAction)send:(id)sender {
+    [self resignFirstResponder];
+    [self.titleTextField resignFirstResponder];
+    [self.descriptionTextField resignFirstResponder];
+    self.titleTextField.enabled = NO;
+    self.descriptionTextField.editable = NO;
+
     if (self.helper.isAuthorized) {
         NSString *privacyStatus;
         switch ([self selectedPrivacyIndex]) {
@@ -95,7 +129,18 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
                 break;
         }
         [self.helper uploadPrivateVideoWithTitle:self.titleTextField.text description:self.descriptionTextField.text commaSeperatedTags:nil privacyStatus:privacyStatus andPath:self.url.path];
-        self.finishBlock(YES);
+//        self.finishBlock(YES);
+        self.doneButton.enabled = NO;
+        self.doneButton.tintColor = [UIColor lightGrayColor];
+        
+        JGProgressHUD *HUD = self.prototypeHUD;
+        HUD.indicatorView = [[JGProgressHUDPieIndicatorView alloc] initWithHUDStyle:HUD.style];
+        HUD.detailTextLabel.text = NSLocalizedString(@"0% Complete", nil);
+        HUD.textLabel.text = NSLocalizedString(@"Uploading...",nil);
+        [HUD showInView:self.navigationController.view];
+        HUD.layoutChangeAnimationDuration = 0.0;
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     } else {
         [self.helper authenticate];
@@ -105,13 +150,16 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark TableView
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.titleTextField resignFirstResponder];
+    [self.descriptionTextField resignFirstResponder];
+    
     if (indexPath.section == 3 && indexPath.row == 0) {
         if (indexPath.section == 3 && indexPath.row == 0) {
             if (!self.helper.isAuthorized) {
                 [self.helper authenticate];
             }
             else{
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Do you want to logout your YouTube account right now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Logout", nil];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"Do you want to logout your YouTube account right now?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"No",nil) otherButtonTitles:NSLocalizedString(@"Logout",nil), nil];
                 [alertView show];
             }
         }
@@ -152,10 +200,20 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark UIAlertView Delegate 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
+    if(alertView.title == nil){
+        if (buttonIndex == 1) {
         [self.helper signOut];
         self.finishBlock(NO);
+        }
     }
+    else{
+        self.finishBlock(NO);
+        if (buttonIndex == 1) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"http://www.youtube.com/watch?v=" stringByAppendingString:self.identifier]]];
+        }
+        self.identifier = nil;
+    }
+    
 }
 
 #pragma mark YouTubeHelper Delegate
@@ -177,7 +235,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (void)authenticationFail:(NSError *)error;
 {
-    NSLog(@"Error %@", error.description);
+//    NSLog(@"Error %@", error.description);
     self.finishBlock(NO);
 }
 
@@ -188,14 +246,56 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 - (void)uploadProgressPercentage:(int)percentage;
 {
     NSLog(@"Data uploaded: %d", percentage);
+    JGProgressHUD *HUD = self.prototypeHUD;
+    [HUD setProgress:percentage/100.0f animated:NO];
+    HUD.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%i%% Complete",nil), percentage];
 }
 
-- (void)uploadSuccess {
-//    self.finishBlock(YES);
+- (void)uploadSuccess:(NSString *)identifier {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    JGProgressHUD *HUD = self.prototypeHUD;
+    HUD.textLabel.text = @"Success";
+    HUD.detailTextLabel.text = nil;
+    HUD.indicatorView = nil;
+    
+    HUD.layoutChangeAnimationDuration = 0.3;
+    self.identifier = identifier;
+    
+     NSLog(@"%@",identifier);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [HUD dismiss];
+        [self setToDoneButton];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Congratulations", nil) message:NSLocalizedString(@"You've uploaded your video to YouTube successfully, you can watch it right now or later", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Maybe Later", nil) otherButtonTitles:NSLocalizedString(@"Watch it now!", nil), nil];
+            
+            [alert show];
+
+        });
+    });
 }
 
 - (void)uploadFail:(NSError *)error {
-//    self.finishBlock(NO);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    JGProgressHUD *HUD = self.prototypeHUD;
+    HUD.textLabel.text = @"Failed";
+    HUD.detailTextLabel.text = nil;
+    HUD.indicatorView = nil;
+    
+    HUD.layoutChangeAnimationDuration = 0.3;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [HUD dismiss];
+        self.finishBlock(NO);
+        [self setToDoneButton];
+    });
 }
+
+- (void)setToDoneButton{
+    self.doneButton.enabled = YES;
+    self.doneButton.title = NSLocalizedString(@"Done", nil);
+    self.doneButton.tintColor = self.navigationController.navigationBar.tintColor;
+}
+
 
 @end

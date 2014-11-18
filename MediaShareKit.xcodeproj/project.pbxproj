@@ -73,8 +73,6 @@
 		7CED11E9199751DD0081FF73 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MediaShareKit/main.m; sourceTree = SOURCE_ROOT; };
 		7CED11EB199751E30081FF73 /* MediaShareKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MediaShareKit-Prefix.pch"; path = "MediaShareKit/MediaShareKit-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7CED11ED199751F10081FF73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = MediaShareKit/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
-		FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaShareKit.xcconfig"; path = "Pods/Pods-MediaShareKit.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +96,6 @@
 				7C9FD5471994613E00D0E6D8 /* MediaShareKit */,
 				7C9FD5401994613E00D0E6D8 /* Frameworks */,
 				7C9FD53F1994613E00D0E6D8 /* Products */,
-				BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */,
-				FAFBC05A236040F19B0098CD /* Pods-MediaShareKit.xcconfig */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -458,7 +454,6 @@
 		};
 		7C9FD5711994613E00D0E6D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -472,7 +467,6 @@
 		};
 		7C9FD5721994613E00D0E6D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF311622CAFF462C8FD239D7 /* Pods-MediaShareKit.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

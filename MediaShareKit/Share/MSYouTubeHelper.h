@@ -32,7 +32,7 @@ extern NSString *const GTLYouTubeVideoUpdateResultNotification;
 @optional
 
 - (void)uploadProgressPercentage:(int)percentage;
-- (void)uploadSuccess;
+- (void)uploadSuccess:(NSString *)identifier;
 - (void)uploadFail:(NSError *)error;
 
 @end
@@ -60,5 +60,7 @@ extern NSString *const GTLYouTubeVideoUpdateResultNotification;
                  commaSeperatedTags:(NSString *)tags
                       privacyStatus:(NSString *)privacyStatus
                             andPath:(NSString *)path;
+
+- (void)cancelUpload;
 
 @end

@@ -70,6 +70,13 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
     [GTMOAuth2ViewControllerTouch removeAuthFromKeychainForName:kKeychainItemName];
 }
 
+- (void)cancelUpload{
+    if (self->_uploadFileTicket != nil) {
+        [self->_uploadFileTicket cancelTicket];
+    }
+    
+}
+
 - (void)uploadPrivateVideoWithTitle:(NSString *)title
                         description:(NSString *)description
                  commaSeperatedTags:(NSString *)tags
@@ -250,7 +257,7 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
                                     // Callback
                                     self->_uploadFileTicket = nil;
                                     if (error == nil) {
-                                        [self.delegate uploadSuccess];
+                                        [self.delegate uploadSuccess:uploadedVideo.identifier];
                                         [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:@{@"platform_reference":uploadedVideo.identifier, @"url": _videoPath}];
                                         NSLog(@"Video Uploaded : %@", uploadedVideo.snippet.title);
                         
