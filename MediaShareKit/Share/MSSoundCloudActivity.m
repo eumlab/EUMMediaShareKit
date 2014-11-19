@@ -75,6 +75,7 @@ NSString *const SoundCloudAudioUpdateResultNotification = @"SoundCloudAudioUpdat
                                                                                [self activityDidFinish:NO];
                                                                            }
                                                                            else if (error) {
+                                                                               [[NSNotificationCenter defaultCenter] postNotificationName:SoundCloudAudioUpdateResultNotification object:error];
                                                                                [self activityDidFinish:NO];
                                                                            }
                                                                            else {
