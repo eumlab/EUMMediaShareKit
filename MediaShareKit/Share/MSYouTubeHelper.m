@@ -9,6 +9,7 @@
 #import "MSYouTubeHelper.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "GTMHTTPUploadFetcher.h"
+#import <AFNetworking.h>
 
 NSString *const GTLYouTubeVideoStatusPrivate = @"private";
 NSString *const GTLYouTubeVideoStatusPublic = @"public";
@@ -231,72 +232,76 @@ static NSString* kKeychainItemName = @"YoutubeHelper";
 
 - (void)uploadVideoWithVideoObject:(GTLYouTubeVideo *)video
            resumeUploadLocationURL:(NSURL *)locationURL {
-    // Get a file handle for the upload data.
-    NSString *path = _videoPath;
-    NSString *filename = [path lastPathComponent];
-    NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    if (fileHandle) {
-        NSString *mimeType = [self MIMETypeForFilename:filename
-                                       defaultMIMEType:@"video/mp4"];
-        GTLUploadParameters *uploadParameters =
-        [GTLUploadParameters uploadParametersWithFileHandle:fileHandle
-                                                   MIMEType:mimeType];
-        uploadParameters.uploadLocationURL = locationURL;
-        
-        GTLQueryYouTube *query = [GTLQueryYouTube queryForVideosInsertWithObject:video
-                                                                            part:@"snippet,status"
-                                                                uploadParameters:uploadParameters];
-        
-        GTLServiceYouTube *service = self.youTubeService;
-        
-        
-        self.uploadFileTicket = [service executeQuery:query
-                                completionHandler:^(GTLServiceTicket *ticket,
-                                                    GTLYouTubeVideo *uploadedVideo,
-                                                    NSError *error) {
-                                    // Callback
-                                    self->_uploadFileTicket = nil;
-                                    if (error == nil) {
-                                        [self.delegate uploadSuccess:uploadedVideo.identifier];
-                                        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:@{@"platform_reference":uploadedVideo.identifier, @"url": _videoPath}];
-                                        NSLog(@"Video Uploaded : %@", uploadedVideo.snippet.title);
-                        
-                                    } else {
-                                        [self.delegate uploadFail:error];
-                                        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:error];
-                                        NSLog(@"Video Upload failed : %@", [error description]);
-                                    }
-                                }];
-        
-        __weak MSYouTubeHelper *dummySelf = self;
-        _uploadFileTicket.uploadProgressBlock = ^(GTLServiceTicket *ticket,
-                                                  unsigned long long numberOfBytesRead,
-                                                  unsigned long long dataLength) {
-            
-            long double division = (double)numberOfBytesRead / (double)dataLength;
-            int percentage = division * 100;
-            
-            if (dummySelf.delegate && [dummySelf.delegate respondsToSelector:@selector(uploadProgressPercentage:)]) {
-                [dummySelf.delegate uploadProgressPercentage:percentage];
-            }
-        };
-        
-        // To allow restarting after stopping, we need to track the upload location
-        // URL.
-        //
-        // For compatibility with systems that do not support Objective-C blocks
-        // (iOS 3 and Mac OS X 10.5), the location URL may also be obtained in the
-        // progress callback as ((GTMHTTPUploadFetcher *)[ticket objectFetcher]).locationURL
-        
-//        GTMHTTPUploadFetcher *uploadFetcher = (GTMHTTPUploadFetcher *)[_uploadFileTicket objectFetcher];
-//        uploadFetcher.locationChangeBlock = ^(NSURL *url) {
-//            _uploadLocationURL = url;
-//            [self updateUI];
-//        };
-    } else {
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
         [self.delegate uploadFail:nil]; //TODO: add error
-        [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:[NSError errorWithDomain:@"uploaderror" code:0 userInfo:nil]];
-        NSLog(@"YouTube Helper: invalid/missing file at location provided %@", path);
+    } else {
+        // Get a file handle for the upload data.
+        NSString *path = _videoPath;
+        NSString *filename = [path lastPathComponent];
+        NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+        if (fileHandle) {
+            NSString *mimeType = [self MIMETypeForFilename:filename
+                                           defaultMIMEType:@"video/mp4"];
+            GTLUploadParameters *uploadParameters =
+            [GTLUploadParameters uploadParametersWithFileHandle:fileHandle
+                                                       MIMEType:mimeType];
+            uploadParameters.uploadLocationURL = locationURL;
+            
+            GTLQueryYouTube *query = [GTLQueryYouTube queryForVideosInsertWithObject:video
+                                                                                part:@"snippet,status"
+                                                                    uploadParameters:uploadParameters];
+            
+            GTLServiceYouTube *service = self.youTubeService;
+            
+            
+            self.uploadFileTicket = [service executeQuery:query
+                                        completionHandler:^(GTLServiceTicket *ticket,
+                                                            GTLYouTubeVideo *uploadedVideo,
+                                                            NSError *error) {
+                                            // Callback
+                                            self->_uploadFileTicket = nil;
+                                            if (error == nil) {
+                                                [self.delegate uploadSuccess:uploadedVideo.identifier];
+                                                [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:@{@"platform_reference":uploadedVideo.identifier, @"url": _videoPath}];
+                                                NSLog(@"Video Uploaded : %@", uploadedVideo.snippet.title);
+                                                
+                                            } else {
+                                                [self.delegate uploadFail:error];
+                                                [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:error];
+                                                NSLog(@"Video Upload failed : %@", [error description]);
+                                            }
+                                        }];
+            
+            __weak MSYouTubeHelper *dummySelf = self;
+            _uploadFileTicket.uploadProgressBlock = ^(GTLServiceTicket *ticket,
+                                                      unsigned long long numberOfBytesRead,
+                                                      unsigned long long dataLength) {
+                
+                long double division = (double)numberOfBytesRead / (double)dataLength;
+                int percentage = division * 100;
+                
+                if (dummySelf.delegate && [dummySelf.delegate respondsToSelector:@selector(uploadProgressPercentage:)]) {
+                    [dummySelf.delegate uploadProgressPercentage:percentage];
+                }
+            };
+            
+            // To allow restarting after stopping, we need to track the upload location
+            // URL.
+            //
+            // For compatibility with systems that do not support Objective-C blocks
+            // (iOS 3 and Mac OS X 10.5), the location URL may also be obtained in the
+            // progress callback as ((GTMHTTPUploadFetcher *)[ticket objectFetcher]).locationURL
+            
+            //        GTMHTTPUploadFetcher *uploadFetcher = (GTMHTTPUploadFetcher *)[_uploadFileTicket objectFetcher];
+            //        uploadFetcher.locationChangeBlock = ^(NSURL *url) {
+            //            _uploadLocationURL = url;
+            //            [self updateUI];
+            //        };
+        } else {
+            [self.delegate uploadFail:nil]; //TODO: add error
+            [[NSNotificationCenter defaultCenter] postNotificationName:GTLYouTubeVideoUpdateResultNotification object:[NSError errorWithDomain:@"uploaderror" code:0 userInfo:nil]];
+            NSLog(@"YouTube Helper: invalid/missing file at location provided %@", path);
+        }
     }
 }
 

@@ -5,4 +5,5 @@ target "MediaShareKit" do
     pod 'Google-API-Client/YouTube'
     pod 'CocoaSoundCloudAPI'
     pod 'CocoaSoundCloudUI', :git => 'git@github.com:eumlab/CocoaSoundCloudUI.git'
+    pod 'AFNetworking'
 end

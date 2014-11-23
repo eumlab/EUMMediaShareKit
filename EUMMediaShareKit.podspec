@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.dependency 'Google-API-Client/YouTube'
   s.dependency 'CocoaSoundCloudAPI'
   s.dependency 'CocoaSoundCloudUI' 
+  s.dependency 'AFNetworking'
 
   s.requires_arc = true
   s.source_files = 'MediaShareKit/Share/*.{h,m}'
