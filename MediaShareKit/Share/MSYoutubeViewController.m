@@ -128,8 +128,6 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
             default:
                 break;
         }
-        [self.helper uploadPrivateVideoWithTitle:self.titleTextField.text description:self.descriptionTextField.text commaSeperatedTags:nil privacyStatus:privacyStatus andPath:self.url.path];
-//        self.finishBlock(YES);
         self.doneButton.enabled = NO;
         self.doneButton.tintColor = [UIColor lightGrayColor];
         
@@ -142,6 +140,8 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
+        [self.helper uploadPrivateVideoWithTitle:self.titleTextField.text description:self.descriptionTextField.text commaSeperatedTags:nil privacyStatus:privacyStatus andPath:self.url.path];
+//        self.finishBlock(YES);
     } else {
         [self.helper authenticate];
     }
@@ -276,19 +276,23 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 }
 
 - (void)uploadFail:(NSError *)error {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    JGProgressHUD *HUD = self.prototypeHUD;
-    HUD.textLabel.text = @"Failed";
-    HUD.detailTextLabel.text = nil;
-    HUD.indicatorView = nil;
-    
-    HUD.layoutChangeAnimationDuration = 0.3;
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [HUD dismiss];
-        self.finishBlock(NO);
-        [self setToDoneButton];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        JGProgressHUD *HUD = self.prototypeHUD;
+        HUD.textLabel.text = @"Failed";
+        HUD.detailTextLabel.text = nil;
+        HUD.indicatorView = nil;
+        
+        HUD.layoutChangeAnimationDuration = 0.3;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [HUD dismiss];
+            self.finishBlock(NO);
+            [self setToDoneButton];
+        });
+        
     });
+
 }
 
 - (void)setToDoneButton{
