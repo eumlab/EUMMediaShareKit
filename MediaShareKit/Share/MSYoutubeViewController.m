@@ -59,6 +59,8 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
     
     HUD.delegate = self;
     self.prototypeHUD = HUD;
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 
 }
 
@@ -97,6 +99,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark Action
 
 - (IBAction)cancel:(id)sender {
+    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self.titleTextField resignFirstResponder];
     [self.descriptionTextField resignFirstResponder];
@@ -106,6 +109,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 }
 
 - (IBAction)send:(id)sender {
+    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
     [self resignFirstResponder];
     [self.titleTextField resignFirstResponder];
     [self.descriptionTextField resignFirstResponder];
