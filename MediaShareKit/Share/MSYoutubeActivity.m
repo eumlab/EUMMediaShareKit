@@ -69,7 +69,9 @@
         self.youtubeViewController.url = self.url;
         __block typeof(self) weakSelf = self;
         self.youtubeViewController.finishBlock = ^(BOOL completed) {
-            [weakSelf activityDidFinish:completed];
+            [weakSelf.youtubeViewController dismissViewControllerAnimated:YES completion:^{
+                [weakSelf activityDidFinish:completed];
+            }];
         };
     }
     return self.youtubeViewController.navigationController;
