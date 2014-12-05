@@ -12,6 +12,7 @@
 #import "JGProgressHUDPieIndicatorView.h"
 #import "JGProgressHUDFadeZoomAnimation.h"
 #import "SCLAlertView.h"
+#import <AFNetworking.h>
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
