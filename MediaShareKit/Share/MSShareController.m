@@ -75,9 +75,27 @@ completionHandler andIcon:(UIImage *)icon{
                                             applicationActivities:@[ ac ]];
     controller.completionHandler = completionHandler;
     [viewController presentViewController:controller animated:YES completion:^{}];
-    
-    
 }
 
-
++(void)shareVideoWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourcePoint:(CGPoint)point{
+    MSYoutubeActivity *ac = [MSYoutubeActivity new];
+    ac.icon = icon;
+    UIActivityViewController *controller = [[UIActivityViewController alloc]
+                                            initWithActivityItems:@[ url ]
+                                            applicationActivities:@[ ac ]];
+    controller.completionHandler = completionHandler;
+    
+    UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:controller];
+    [popup presentPopoverFromRect:CGRectMake(point.x, point.y, 0, 0) inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
++(void)shareAudioWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourcePoint:(CGPoint)point{
+    MSSoundCloudActivity *ac = [MSSoundCloudActivity new];
+    ac.icon = icon;
+    UIActivityViewController *controller = [[UIActivityViewController alloc]
+                                            initWithActivityItems:@[ url ]
+                                            applicationActivities:@[ ac ]];
+    controller.completionHandler = completionHandler;
+    UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:controller];
+    [popup presentPopoverFromRect:CGRectMake(point.x, point.y, 0, 0) inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
 @end
