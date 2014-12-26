@@ -77,7 +77,7 @@ completionHandler andIcon:(UIImage *)icon{
     [viewController presentViewController:controller animated:YES completion:^{}];
 }
 
-+(void)shareVideoWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourcePoint:(CGPoint)point{
++(void)shareVideoWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourceFrame:(CGRect )frame{
     MSYoutubeActivity *ac = [MSYoutubeActivity new];
     ac.icon = icon;
     UIActivityViewController *controller = [[UIActivityViewController alloc]
@@ -86,9 +86,9 @@ completionHandler andIcon:(UIImage *)icon{
     controller.completionHandler = completionHandler;
     
     UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:controller];
-    [popup presentPopoverFromRect:CGRectMake(point.x, point.y, 0, 0) inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [popup presentPopoverFromRect:frame inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
-+(void)shareAudioWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourcePoint:(CGPoint)point{
++(void)shareAudioWithURL:(NSURL *)url FromViewController:(UIViewController *)viewController complete:(UIActivityViewControllerCompletionHandler)completionHandler andIcon:(UIImage *)icon andSourceFrame:(CGRect )frame{
     MSSoundCloudActivity *ac = [MSSoundCloudActivity new];
     ac.icon = icon;
     UIActivityViewController *controller = [[UIActivityViewController alloc]
@@ -96,6 +96,6 @@ completionHandler andIcon:(UIImage *)icon{
                                             applicationActivities:@[ ac ]];
     controller.completionHandler = completionHandler;
     UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:controller];
-    [popup presentPopoverFromRect:CGRectMake(point.x, point.y, 0, 0) inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [popup presentPopoverFromRect:frame inView:viewController.view  permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 @end

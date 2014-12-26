@@ -33,7 +33,7 @@ completionHandler andIcon:(UIImage *)icon;
        FromViewController:(UIViewController *)viewController
                  complete:(UIActivityViewControllerCompletionHandler)
 completionHandler andIcon:(UIImage *)icon
-              andSourcePoint:(CGPoint)point;
+           andSourceFrame:(CGRect )frame;
 
 + (void)shareAudioWithURL:(NSURL *)url
        FromViewController:(UIViewController *)viewController
@@ -44,5 +44,5 @@ completionHandler andIcon:(UIImage *)icon;
        FromViewController:(UIViewController *)viewController
                  complete:(UIActivityViewControllerCompletionHandler)
 completionHandler andIcon:(UIImage *)icon
-           andSourcePoint:(CGPoint)point;
+           andSourceFrame:(CGRect )frame;
 @end
