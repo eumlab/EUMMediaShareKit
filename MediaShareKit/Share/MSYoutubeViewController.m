@@ -88,11 +88,9 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark Data
 
 - (NSInteger)selectedPrivacyIndex {
-    for (NSInteger i = 0; i<3; i++) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:2]];
-        if (cell.isSelected) {
-            return i;
-        }
+    NSIndexPath * selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if (selectedIndexPath.section==2) {
+        return selectedIndexPath.row;
     }
     return 0;
 }
