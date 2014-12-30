@@ -16,7 +16,7 @@
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
-@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate>
+@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate,JGProgressHUDDelegate>
 
 @property (strong, nonatomic) MSYouTubeHelper *helper;
 
