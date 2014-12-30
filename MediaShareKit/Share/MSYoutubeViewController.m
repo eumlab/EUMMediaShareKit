@@ -100,8 +100,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 - (IBAction)cancel:(id)sender {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [self.tableView endEditing:YES];
     
     [self.helper cancelUpload];
     self.finishBlock(NO);
@@ -109,9 +108,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (IBAction)send:(id)sender {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-    [self resignFirstResponder];
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [self.tableView endEditing:YES];
     self.titleTextField.enabled = NO;
     self.descriptionTextField.editable = NO;
 
@@ -153,8 +150,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark TableView
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [tableView endEditing:YES];
     
     if (indexPath.section == 3 && indexPath.row == 0) {
         if (indexPath.section == 3 && indexPath.row == 0) {
