@@ -208,11 +208,11 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
     if(alertView.title == nil){
         if (buttonIndex == 1) {
         [self.helper signOut];
-        self.finishBlock(NO);
+        self.finishBlock(YES);
         }
     }
     else{
-        self.finishBlock(NO);
+        self.finishBlock(YES);
         if (buttonIndex == 1) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"http://www.youtube.com/watch?v=" stringByAppendingString:self.identifier]]];
         }
