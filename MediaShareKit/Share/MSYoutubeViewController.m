@@ -16,7 +16,7 @@
 
 NSString *const UD_KEY_LAST_SELECT_PRIVACY = @"UD_KEY_LAST_SELECT_PRIVACY";
 
-@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate>
+@interface MSYoutubeViewController ()<YouTubeHelperDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate,JGProgressHUDDelegate>
 
 @property (strong, nonatomic) MSYouTubeHelper *helper;
 
@@ -88,11 +88,9 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark Data
 
 - (NSInteger)selectedPrivacyIndex {
-    for (NSInteger i = 0; i<3; i++) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:2]];
-        if (cell.isSelected) {
-            return i;
-        }
+    NSIndexPath * selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    if (selectedIndexPath.section==2) {
+        return selectedIndexPath.row;
     }
     return 0;
 }
@@ -102,8 +100,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 - (IBAction)cancel:(id)sender {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [self.tableView endEditing:YES];
     
     [self.helper cancelUpload];
     self.finishBlock(NO);
@@ -111,9 +108,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 
 - (IBAction)send:(id)sender {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
-    [self resignFirstResponder];
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [self.tableView endEditing:YES];
     self.titleTextField.enabled = NO;
     self.descriptionTextField.editable = NO;
 
@@ -155,8 +150,7 @@ static NSString *descriptionCellIdentifier = @"descriptionCell";
 #pragma mark TableView
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.titleTextField resignFirstResponder];
-    [self.descriptionTextField resignFirstResponder];
+    [tableView endEditing:YES];
     
     if (indexPath.section == 3 && indexPath.row == 0) {
         if (indexPath.section == 3 && indexPath.row == 0) {

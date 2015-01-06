@@ -6,4 +6,6 @@ target "MediaShareKit" do
     pod 'CocoaSoundCloudAPI'
     pod 'CocoaSoundCloudUI', :git => 'git@github.com:eumlab/CocoaSoundCloudUI.git'
     pod 'AFNetworking'
+    pod 'JGProgressView'
+    pod 'JGProgressHUD'
 end
